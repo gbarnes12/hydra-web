@@ -7,8 +7,28 @@
 <link href='http://fonts.googleapis.com/css?family=Mako' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Bevan' rel='stylesheet' type='text/css'>
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.pack.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.pack.js">
+
+
+</script>
 <script type="text/javascript">
+	
+	$(document).ready(function(){
+	
+		var callback = function(data){
+			alert(data);
+		};
+		
+		$.ajax({
+			url : "framework/debug.php",
+			dataType: 'json',
+			data: 'page=login',
+			type: 'POST',
+			sucsess: callback
+			
+		});
+		
+	})
 
 </script>
 
@@ -19,25 +39,43 @@
     <img id="logo" src="resource/images/logo.jpg" alt="logo" />
     </div>
 	<div id="content">
-		<h1>Welcome. Log in.</h1>
-		<form  action="" method="post" accept-charset="ISO-8859-1">
-			<input class="formfield" name="email" type="text" size="40" maxlength="40" value="Enter your email adress.">
- <input class="button" type="button" name="go" value="Go"
-      onclick="">
-            <p><a href="#">Register an account.</a></p>
-	</form>
+	<?php
+		if(!isset($_GET["page"]))
+		{
+		   if(!file_exists("content/".$_GET["page"].".php"))
+		   {
+		    	include("content/error.php");
+		   }
+		   else
+		   {
+		 		include("content/login.php"); 
+		   }
+		
+		}
+		else 
+		{
+		   if(!file_exists("content/".$_GET["page"].".php"))
+		   {
+		    	include("content/error.php");
+		   }
+		   else
+		   {
+		 		include("content/".$_GET["page"].".php"); 
+		   }
+		}
+	?>
 	</div>
     
     <div id="footer">
     	<ul id="footer_nav">
         	<li>
-            <a href="#">Impressum<a>
+            <a href="?page=disclaimer">Disclaimer<a>
             </li>
          	<li>
-            <a href="#">Kontakt<a>
+            <a href="?page=contact">Contact<a>
             </li>           
             <li>
-           <a href="#"> Hilfe<a>
+           <a href="?page=help">Help<a>
             </li>           
     	</ul>
     </div>
