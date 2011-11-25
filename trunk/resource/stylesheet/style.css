@@ -1,0 +1,115 @@
+@charset "utf-8";
+
+body
+{
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	background: #e1e1e1;
+	background- image: url(../login.png);
+	background-repeat:no-repeat;
+	font-family: 'Mako', sans-serif;
+	font-size: 100%;
+	color: #1f1f1f;
+}
+
+a
+{
+	text-decoration: none;
+	color: #1f1f1f;
+}
+h1, h2, h3
+{
+	font-family: 'Bevan', serif;
+	font-size: 300%;	
+
+	margin: 0;
+	padding: 0;
+}
+#header
+{
+	height: 80px;
+}
+
+#logo
+{
+	margin-left: 100px;
+	margin-top: 30px;
+}
+
+#content
+{
+	margin: 190px 0 1px 110px;
+	height: 80%;
+	align: center;
+
+}
+
+form {
+	width:560px;
+}
+
+.formfield
+{
+	margin: 0;
+	background: #c9c9c9;
+	border: 0 none;
+	height: 40px;
+	width: 485px;
+	padding-left: 15px;
+	font-size: 100%;
+}
+
+.button
+{
+	margin-left: 10px;
+	height: 40px;
+	width: 40px;
+	border: 0 none;
+	background-color: #005013;
+	font-family: 'Bevan', serif;
+	color: #e1e1e1;
+}
+
+form p
+{
+	padding: 0;
+	margin: 0;
+	padding-right: 60px;
+	text-align: right;
+}
+
+#footer
+{
+	width: 100%;
+	height: 50px;
+    position:fixed;
+    bottom:0px;
+	background: #1f1f1f;
+}
+
+#footer_nav
+{
+	padding-right: 50px;
+	text-align: right;
+
+}
+
+#footer_nav li
+{
+	text-transform: uppercase;
+	font-size: 90%;
+	list-style: none;
+	display: inline;
+	padding:0 10px 0px 10px;
+	border-left: 1px solid #e1e1e1;
+}
+#footer_nav li:first-child
+{
+	border: none;
+}
+
+#footer_nav a
+{
+	color: #e1e1e1;	
+}
