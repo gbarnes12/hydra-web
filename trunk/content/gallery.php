@@ -122,7 +122,7 @@
 			<a href="resource/images/large.jpg" class "preview" rel="lightbox"> <img src="resource/images/img.jpg" alt="img"></a>		
 		</div>
 		<button id="ok" name="ok" type="button"
-		      value="Upload" onclick="alert('uoload!');">
+		      value="Upload" onclick="alert('ok!');">
 		      <p>
 		        Ok
 		      </p>
