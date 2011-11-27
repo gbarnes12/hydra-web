@@ -1,0 +1,67 @@
+@charset "utf-8";
+
+body
+{
+	background-image: url(bilderwahl.png);
+	background-repeat:no-repeat;
+}
+
+#content
+{
+	
+	margin-top: 100px;
+}
+
+#upload
+{
+	border: 0 none;
+	background: #535353;
+	width: 146px;
+	height: 40px;
+	padding: 0;
+}
+
+#form
+{
+	width: 146px;
+}
+
+#upload p
+{
+	color: #ffffff;
+	padding: 0 0 0 10px;
+	text-align: left;
+}
+
+#gallery
+{
+	margin-top: 17px;
+}
+
+#gallery img:first-child
+{
+	margin-left: 0px;
+}
+
+
+#gallery img
+{
+	margin-left: 40px;
+}
+
+#ok
+{
+	margin-top: 15px;
+	border: 0 none;
+	background: #005013;
+	color: #fff;
+	width: 40px;
+	height: 40px;
+}
+
+#ok p
+{
+	margin: 0;
+	font-family: 'Bevan', serif;
+	font-size: 120%;
+}

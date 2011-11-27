@@ -50,7 +50,7 @@
 
 <body>
 	<div id="header">
-    <img id="logo" src="resource/images/logo.jpg" alt="logo" />
+    <a href="?page=login"><img id="logo" src="resource/images/logo.jpg" alt="logo" /></a>
     </div>
 	<div id="content">
 	<?php
