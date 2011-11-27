@@ -12,24 +12,38 @@
 
 </script>
 <script type="text/javascript">
-	
-	$(document).ready(function(){
-	
-		var callback = function(data){
-			alert(data);
-		};
-		
-		$.ajax({
-			url : "framework/debug.php",
+   function sendAjaxRequest(file, data, callback)
+    {
+        $.ajax({
+			url : "framework/connect.php",
 			dataType: 'json',
-			data: 'page=login',
+			data: data,
 			type: 'POST',
-			sucsess: callback
-			
+			success: callback
 		});
-		
-	})
+    }
 
+    function checkIfUserExists(obj)
+    {
+        var email = $(obj).val();
+        if(email != "")
+        {
+            
+            var callback = function(data) {
+                     if(data.type == "return")
+                     {
+                        if(data.value == "true")
+                            alert("The email address you want to register is already taken.");
+                     }
+                     else if(data.type == "error")
+                     {
+                        alert(data.message);
+                     }
+            };
+            
+            sendAjaxRequest("connect.php", "class=user&method=checkIfUserExists&email="+email, callback);  
+        }
+    } 
 </script>
 
 </head>
@@ -42,26 +56,18 @@
 	<?php
 		if(!isset($_GET["page"]))
 		{
-		   if(!file_exists("content/".$_GET["page"].".php"))
-		   {
+		   if(!file_exists("content/login.php"))
 		    	include("content/error.php");
-		   }
 		   else
-		   {
 		 		include("content/login.php"); 
-		   }
 		
 		}
 		else 
 		{
 		   if(!file_exists("content/".$_GET["page"].".php"))
-		   {
 		    	include("content/error.php");
-		   }
 		   else
-		   {
 		 		include("content/".$_GET["page"].".php"); 
-		   }
 		}
 	?>
 	</div>

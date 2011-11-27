@@ -63,12 +63,10 @@
                             
                             if(file_exists("class/modes/" . $fname ))
                             { 
-                                print_r($names);
                                 include("class/modes/" . $fname);
                                 //create new instance of the class we are currently processing
                                 if(class_exists($names[0]))
                                 {
-                                    
                                     $instance = new $names[0]();
                                     self::$classes[$names[0]] = $instance;
                                 }
@@ -92,15 +90,14 @@
             if(isset($_POST["class"]) && isset($_POST["method"]))
             {
                 $class = $_POST["class"];
-                if(selft::classes != null)
+                if(self::$classes != null)
                 {
-                    if(array_key_exists($class))
+                    if(array_key_exists($class, self::$classes))
                     {
                         $instance = self::$classes[$class];
                         if(is_object($instance))
                         {
-                            
-                            $data = $instance->$_POST["method"]($_POST);
+                            $this->data = $instance->$_POST["method"]($_POST);
                         }
                     }
                 }
