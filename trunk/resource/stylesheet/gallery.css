@@ -30,6 +30,8 @@
 
 #gallery
 {
+	width: 800px;
+	height: 240px;
 	margin-top: 17px;
 }
 
@@ -41,24 +43,14 @@
 
 #gallery a img
 {
-	margin-left: 40px;
+	margin-left: 36px;
 }
 
-#ok
+.button
 {
-	margin-top: 15px;
-	border: 0 none;
-	background: #005013;
-	color: #fff;
-	width: 40px;
-	height: 40px;
-}
+	float: right;
+	margin-top: 20px;
 
-#ok p
-{
-	margin: 0;
-	font-family: 'Bevan', serif;
-	font-size: 120%;
 }
 
 #overlay

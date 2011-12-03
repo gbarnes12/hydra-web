@@ -116,16 +116,13 @@
 		  </div>
 		</form>
 		<div id="gallery">
-				</a>
-			<a href="resource/images/large.jpg" class "preview" rel="lightbox"> <img src="resource/images/img.jpg" alt="img"></a>
-			<a href="resource/images/large.jpg" class "preview" rel="lightbox"> <img src="resource/images/img.jpg" alt="img"></a>
-			<a href="resource/images/large.jpg" class "preview" rel="lightbox"> <img src="resource/images/img.jpg" alt="img"></a>		
+
+			<a href="resource/images/bild1_gr.jpg" class "preview" rel="lightbox"> <img src="resource/images/bild1.jpg" alt="img"></a>
+			<a href="resource/images/bild2_gr.jpg" class "preview" rel="lightbox"> <img src="resource/images/bild2.jpg" alt="img"></a>
+			<a href="resource/images/bild3_gr.jpg" class "preview" rel="lightbox"> <img src="resource/images/bild3.jpg" alt="img"></a>
+
+			
+			 <input class="button" type="button" name="go" value="Go" onclick="" />		
 		</div>
-		<button id="ok" name="ok" type="button"
-		      value="Upload" onclick="alert('ok!');">
-		      <p>
-		        Ok
-		      </p>
-		    </button>
-		  </div>
-		</form>
+
+		
