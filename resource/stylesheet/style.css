@@ -88,11 +88,8 @@ form p
 
 #footer_nav
 {
-	padding-right: 50px;
-	text-align: right;
-
+	padding-left: 90px;
 }
-
 #footer_nav li
 {
 	text-transform: uppercase;
