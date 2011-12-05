@@ -6,11 +6,10 @@
 <link href="resource/stylesheet/style.css" rel="stylesheet" type="text/css" />
 <link href='http://fonts.googleapis.com/css?family=Mako' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Bevan' rel='stylesheet' type='text/css'>
+<link href="resource/stylesheet/gallery.css" rel="stylesheet" type="text/css" />
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.pack.js">
-
-
-</script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.pack.js"></script>
+<script type="text/javascript" src="resource/javascript/gallery.js"></script>
 <script type="text/javascript">
    function sendAjaxRequest(file, data, callback)
     {
@@ -44,6 +43,33 @@
             sendAjaxRequest("connect.php", "class=user&method=checkIfUserExists&email="+email, callback);  
         }
     } 
+    
+    function proceedToStep(oldStep, newStep)
+    {
+        var $lefty = $("#step_" + oldStep);
+        $lefty.animate(
+        {
+          left: parseInt($lefty.css('left'),10) == 0 ?
+            -$lefty.outerWidth() :
+            0
+        }, 
+        "1000", 
+        'linear', 
+        function() 
+        {
+            $lefty.hide();
+            
+            var $righty = $("#step_" + newStep);
+            $righty.show();
+            $righty.animate({
+              left: parseInt($righty.css('left'),10) == 0 ?
+                -$righty.outerWidth() :
+                0
+            }, "10", "linear", function() {});
+        });
+        
+        
+    }
 </script>
 
 </head>
