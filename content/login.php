@@ -1,8 +1,6 @@
-		<h1>Welcome. Log in.</h1>
-		<form  action="" method="post" accept-charset="ISO-8859-1">
-			<input class="formfield" name="email" type="text" size="40" maxlength="40" value="Enter your email adress." />
- <input class="button" type="button" name="go" value="Go"
-      onclick="" />
-            <p><a href="?page=register">Register an account.</a></p>
-	</form>
-	
+<h1>Welcome. Log in.</h1>
+<form  action="" method="post" accept-charset="ISO-8859-1">
+	<input class="formfield" name="email" type="text" size="40" onfocus="if(this.value=='Enter your email adress.') this.value=''" onblur="if(this.value=='')this.value='Enter your email adress.'"  maxlength="40" value="Enter your email adress." />
+    <input class="button" type="button" name="go" value="Go" onclick="" />
+    <p><a href="?page=register">Register an account.</a></p>
+</form>	

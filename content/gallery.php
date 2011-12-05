@@ -1,3 +1,5 @@
+<<<<<<< .mine
+=======
 		<head>
 			<link href="resource/stylesheet/gallery.css" rel="stylesheet" type="text/css" />
 			<script type="text/javascript">
@@ -125,4 +127,4 @@
 			 <input class="button" type="button" name="go" value="Go" onclick="" />		
 		</div>
 
-		
+		>>>>>>> .r13
