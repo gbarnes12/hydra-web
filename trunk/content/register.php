@@ -1,8 +1,8 @@
 <div id="step_1" style="position: relative;">
     <h1>Register an account.</h1>
     <form  action="" method="post" accept-charset="ISO-8859-1">
-    	<input class="formfield" name="email" type="text" onfocus="if(this.value=='Enter your email adress.') this.value=''" onblur="if(this.value=='')this.value='Enter your email adress.'" onchange="checkIfUserExists(this);" size="40" maxlength="40" value="Enter your email adress." />
-        <input class="button" type="button" name="go" value="Go" onclick="proceedToStep(1, 2);" />
+    	<input class="formfield" name="email" id="email" type="text" onfocus="emptyField(this, 'onFocus', 'Enter your email adress.');" onblur="emptyField(this, 'onBlur', 'Enter your email adress.');" onchange="framework.checkIfUserExists(this);" size="40" maxlength="40" value="Enter your email adress." />
+        <input class="button" type="button" name="go" value="Go" onclick="proceedToStep(1, 2, {method: checkIfValidEmail, params: {email:$('#email').val()}}, {method: getImages, params: {}});" />
         <p><a href="?page=login">Log in.</a></p>
     </form>
 </div>
@@ -18,10 +18,7 @@
 	    </button>
 	  </div>
 	</form>
-	<div id="gallery">
-		<a href="resource/images/large.jpg" class="preview" rel="lightbox"> <img src="resource/images/img.jpg" alt="img" /></a>
-		<a href="resource/images/large.jpg" class="preview" rel="lightbox"> <img src="resource/images/img.jpg" alt="img" /></a>
-		<a href="resource/images/large.jpg" class="preview" rel="lightbox"> <img src="resource/images/img.jpg" alt="img" /></a>		
+	<div id="gallery">	
 	</div>
 	<button id="ok" name="ok" type="button" value="Upload" onclick="alert('ok!');">
 	      <p>Ok</p>

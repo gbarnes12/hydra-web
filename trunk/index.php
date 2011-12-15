@@ -10,68 +10,12 @@
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.pack.js"></script>
 <script type="text/javascript" src="resource/javascript/gallery.js"></script>
+<script type="text/javascript" src="resource/javascript/framework.js"></script>
 <script type="text/javascript">
-   function sendAjaxRequest(file, data, callback)
-    {
-        $.ajax({
-			url : "framework/connect.php",
-			dataType: 'json',
-			data: data,
-			type: 'POST',
-			success: callback
-		});
-    }
-
-    function checkIfUserExists(obj)
-    {
-        var email = $(obj).val();
-        if(email != "")
-        {
-            
-            var callback = function(data) {
-                     if(data.type == "return")
-                     {
-                        if(data.value == "true")
-                            alert("The email address you want to register is already taken.");
-                     }
-                     else if(data.type == "error")
-                     {
-                        alert(data.message);
-                     }
-            };
-            
-            sendAjaxRequest("connect.php", "class=user&method=checkIfUserExists&email="+email, callback);  
-        }
-    } 
-    
-    function proceedToStep(oldStep, newStep)
-    {
-        var $lefty = $("#step_" + oldStep);
-        $lefty.animate(
-        {
-          left: parseInt($lefty.css('left'),10) == 0 ?
-            -$lefty.outerWidth() :
-            0
-        }, 
-        "1000", 
-        'linear', 
-        function() 
-        {
-            $lefty.hide();
-            
-            var $righty = $("#step_" + newStep);
-            $righty.show();
-            $righty.animate({
-              left: parseInt($righty.css('left'),10) == 0 ?
-                -$righty.outerWidth() :
-                0
-            }, "10", "linear", function() {});
-        });
-        
-        
-    }
+var framework = new Framework("framework/connect.php");
 </script>
 
+<script type="text/javascript" src="resource/javascript/custom.js"></script>
 </head>
 
 <body>
