@@ -44,7 +44,7 @@ var framework = new Framework("framework/connect.php");
 	</div>
     
 	<div class="helper">
-		<a href="?page=about"><img src="resource/images/helper.png"/></a>
+		<a class="helper_move" href="?page=about">test</a>
 	</div>
 	
     <div id="footer">
