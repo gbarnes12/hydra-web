@@ -9,8 +9,9 @@
 <link href="resource/stylesheet/gallery.css" rel="stylesheet" type="text/css" />
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.pack.js"></script>
+<script type="text/javascript" src="resource/javascript/framework/md5.js"></script>
 <script type="text/javascript" src="resource/javascript/gallery.js"></script>
-<script type="text/javascript" src="resource/javascript/framework.js"></script>
+<script type="text/javascript" src="resource/javascript/framework/framework.js"></script>
 <script type="text/javascript">
 var framework = new Framework("framework/connect.php");
 </script>

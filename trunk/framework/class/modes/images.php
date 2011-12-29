@@ -20,40 +20,17 @@
          */
         public function getDefaultImages()
         {
-            $path = IMAGE_PATH;
-            $files = array();
+           $path = IMAGE_PATH;
+           $mysql = framework::$mysql;
             
-            // open the current directory
-            $handle = opendir($path);
+           $sql = "SELECT * FROM awe_images WHERE isUpload = 0";
+           $return = $mysql->Command($sql, true);
             
-            if ($handle) 
+            if(count($return) > 0) 
             {
-               // loop through all of the files
-               while (false !== ($fname = readdir($handle))) 
-               {
-                  // if the file is not this file, and does not start with a '.' or '..',
-                  // then store it for later display
-                  if (($fname != '.') && ($fname != '..') &&
-                      ($fname != basename($_SERVER['PHP_SELF']))) 
-                      {
-                        if(is_file($path . $fname))
-                        {
-                            // store the filename
-                            if(file_exists($path . $fname )) 
-                            { 
-                                $files[] = $fname;
-                            }
-                        }
-                  }
-               }
-               
-               if(count($files) > 0)
-                return array("type" => "return", "value" => $files);
-               
-               // close the directory
-               closedir($handle);
+                return array("type" => "return", "value" => $return);
             }
-            
+
             return array("type" => "error", "message" => "Something went wrong while retrieving the images.");
         }
     }

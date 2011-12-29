@@ -30,7 +30,7 @@
 
 #gallery
 {
-	width: 800px;
+	width: 803px;
 	height: 240px;
 	margin-top: 17px;
 }
@@ -46,10 +46,11 @@
 	margin-left: 36px;
 }
 
-.button
+#button_gallery
 {
-	float: right;
-	margin-top: 20px;
+	margin: 20px 0 0 0;
+
+
 
 }
 

@@ -119,9 +119,9 @@
 		</form>
 		<div id="gallery">
 
-			<a href="resource/images/bild1_gr.jpg" class "preview" rel="lightbox"> <img src="resource/images/bild1.jpg" alt="img"></a>
-			<a href="resource/images/bild2_gr.jpg" class "preview" rel="lightbox"> <img src="resource/images/bild2.jpg" alt="img"></a>
-			<a href="resource/images/bild3_gr.jpg" class "preview" rel="lightbox"> <img src="resource/images/bild3.jpg" alt="img"></a>
+			<a href="resource/images/bild1_gr.jpg" class="preview" rel="lightbox"> <img src="resource/images/bild1.jpg" alt="img"></a>
+			<a href="resource/images/bild2_gr.jpg" class="preview" rel="lightbox"> <img src="resource/images/bild2.jpg" alt="img"></a>
+			<a href="resource/images/bild3_gr.jpg" class="preview" rel="lightbox"> <img src="resource/images/bild3.jpg" alt="img"></a>
 
 			
 			 <input class="button" type="button" name="go" value="Go" onclick="" />		

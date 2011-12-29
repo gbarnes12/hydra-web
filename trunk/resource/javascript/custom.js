@@ -1,3 +1,4 @@
+
 function proceedToStep(oldStep, newStep, callbackBefore, callbackAfter)
 {
     if(callbackBefore.method(callbackBefore.params))
@@ -13,8 +14,7 @@ function proceedToStep(oldStep, newStep, callbackBefore, callbackAfter)
         'linear', 
         function() 
         {
-            $lefty.hide();
-            
+            $lefty.hide();            
             var $righty = $("#step_" + newStep);
             $righty.show();
             $righty.animate({
@@ -26,6 +26,19 @@ function proceedToStep(oldStep, newStep, callbackBefore, callbackAfter)
             });
         }); 
     }
+}
+
+function userCreated(data)
+{
+    if(data.type == "return")
+     {
+        alert("Ihr Zugang wurde erstellt.");
+        window.location="index.php"
+     }
+     else if(data.type == "error")
+     {
+        alert(data.message);
+     }
 }
 
 function checkIfValidEmail(params)
@@ -48,7 +61,7 @@ function getImages(params)
             var i=0;
             for (i=0; i < data.value.length; i++)
             {
-                html+='<a href="generated/gallery/large/'+data.value[i]+'" class="preview" rel="lightbox"> <img style="width: 241px;height:239px" src="generated/gallery/'+data.value[i]+'" alt="img" /></a>';
+                html+='<a href="generated/gallery/large/'+data.value[i].name+'" class="preview" rel="lightbox"> <img style="width: 241px;height:239px" src="generated/gallery/'+data.value[i].name+'" alt="img" /></a>';
             }
             
             $("#gallery").html(html);
