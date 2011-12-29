@@ -56,7 +56,6 @@
 	margin-left: 36px;
 }
 
-<<<<<<< .mine
 .arrow_right{
 	position: absolute;
 	margin-top: 100px;
@@ -67,20 +66,9 @@
 	border: 2px solid red;
 }
 #ok, #button_gallery
-=======
-#button_gallery
->>>>>>> .r17
 {
-<<<<<<< .mine
 	float: left;
-	margin-top: 20px;
-=======
 	margin: 20px 0 0 0;
->>>>>>> .r17
-	margin-left: 0;
-
-
-
 }
 
 #overlay
