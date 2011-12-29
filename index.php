@@ -52,7 +52,7 @@ var framework = new Framework("framework/connect.php");
             <a href="?page=contact">Contact<a>
             </li>           
             <li>
-           <a href="?page=help">Help<a>
+           <a href="?page=about">About<a>
             </li>           
     	</ul>
     </div>

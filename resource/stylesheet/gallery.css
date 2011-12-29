@@ -28,11 +28,21 @@
 	text-align: left;
 }
 
-#gallery
-{
+.carousell{
 	width: 803px;
 	height: 240px;
 	margin-top: 17px;
+}
+
+.carousell a img
+{
+	float: left;
+	margin-left: 36px;
+}
+
+#gallery
+{
+
 }
 
 #gallery a:first-child img
@@ -46,9 +56,28 @@
 	margin-left: 36px;
 }
 
+<<<<<<< .mine
+.arrow_right{
+	position: absolute;
+	margin-top: 100px;
+}
+
+.arrow_right:active{
+	background: red;
+	border: 2px solid red;
+}
+#ok, #button_gallery
+=======
 #button_gallery
+>>>>>>> .r17
 {
+<<<<<<< .mine
+	float: left;
+	margin-top: 20px;
+=======
 	margin: 20px 0 0 0;
+>>>>>>> .r17
+	margin-left: 0;
 
 
 
