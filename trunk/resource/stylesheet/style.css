@@ -82,10 +82,18 @@ form p
 	padding-left: 50px;
 	bottom: 0px;
 	margin-bottom: 55px;
-	width: 82px;
-	height: 92px;
 }
 
+.helper_move{
+	display: block;
+	width: 82px;
+	height: 92px;
+	background: url('/resource/images/helper.png') bottom;
+	text-indent: -99999px;
+}
+.helper_move:hover{	
+	background-position: 0 0;
+}
 #footer
 {
 	clear: both;
