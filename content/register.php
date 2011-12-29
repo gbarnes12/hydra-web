@@ -7,6 +7,7 @@
     </form>
 </div>
 <div id="step_2" style="display: none;position:relative;left: 2000px">
+
     <h1>Choose a picture.</h1>
 		<form action="button.htm">
 		  <div>
@@ -18,7 +19,10 @@
 		    </button>
 		  </div>
 		</form>
-		<div id="gallery"></div>	
+		<div class="carousell">
+			<div id="gallery"></div>
+				<a href="#" class="arrow_right"> <img src="resource/images/arrow_right.png" alt="arrow"/></a>
+		</div>	
         <input class="button" id="button_gallery" type="button" name="go" value="Go" onclick="proceedToStep(2, 3, {method: function() {return true;}, params: {}}, {method: function() {}, params: {}});" />		
 </div>
 <div id="step_3" style="display: none;position:relative;left: 2000px">
