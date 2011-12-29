@@ -44,8 +44,26 @@
             
         }
         
-        public function registerUser()
+        public function createUser()
         {
+            $mysql = framework::$mysql;
             
+            if($_POST["email"] && $_POST["password"])
+            {
+                $sql = "INSERT INTO 
+                        awe_users 
+                        (email, password, image_id) 
+                        VALUES 
+                        ('".$mysql->SecureVariable($_POST["email"])."', AES_ENCRYPT('".$mysql->SecureVariable($_POST["password"])."', '".SALT."'), 1)";
+                        
+                if($mysql->Command($sql)) 
+                {
+                    return array("type" => "return", "value" => "true");
+                }
+                
+                return array("type" => "error", "message" => "Something went wrong while creating your user!");
+            }
+            
+            return array("type" => "error", "message" => "You haven't supplied any email address or password to check");
         }
     }
