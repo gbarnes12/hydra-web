@@ -78,8 +78,14 @@ form p
 	text-align: right;
 }
 .helper{
-	margin-left: 50px;
+	position: absolute;
+	padding-left: 50px;
+	bottom: 0px;
+	margin-bottom: 55px;
+	width: 82px;
+	height: 92px;
 }
+
 #footer
 {
 	clear: both;
