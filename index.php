@@ -43,6 +43,10 @@ var framework = new Framework("framework/connect.php");
 	?>
 	</div>
     
+	<div class="helper">
+		<a href="?page=about"><img src="resource/images/helper.png"/></a>
+	</div>
+	
     <div id="footer">
     	<ul id="footer_nav">
         	<li>
