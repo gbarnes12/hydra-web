@@ -28,7 +28,7 @@
 <div id="step_3" style="display: none;position:relative;left: 2000px">
     <div style="float: left;margin-right: 20px;background-image: url('generated/gallery/large/monkey.jpg');width: 800px;height: 600px;" onclick="framework.setPoint(event, this);"></div>
     <div style="float: left;">
-        <button id="ok" name="ok" type="button" value="Upload" onclick="framework.createUser(userCreated);">
+        <button class="button" id="ok" name="ok" type="button" value="Upload" onclick="framework.createUser(userCreated);">
 	      <p>Ok</p>
         </button>
     </div>
