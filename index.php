@@ -20,27 +20,30 @@ var framework = new Framework("framework/connect.php");
 </head>
 
 <body>
+<div id="wrapper">
 	<div id="header">
-    <a href="?page=login"><img id="logo" src="resource/images/logo.jpg" alt="logo" /></a>
+        <a href="?page=login"><img id="logo" src="resource/images/logo.jpg" alt="logo" /></a>
     </div>
 	<div id="content">
-	<?php
-		if(!isset($_GET["page"]))
-		{
-		   if(!file_exists("content/login.php"))
-		    	include("content/error.php");
-		   else
-		 		include("content/login.php"); 
-		
-		}
-		else 
-		{
-		   if(!file_exists("content/".$_GET["page"].".php"))
-		    	include("content/error.php");
-		   else
-		 		include("content/".$_GET["page"].".php"); 
-		}
-	?>
+        <div id="content-inner">
+        	<?php
+        		if(!isset($_GET["page"]))
+        		{
+        		   if(!file_exists("content/login.php"))
+        		    	include("content/error.php");
+        		   else
+        		 		include("content/login.php"); 
+        		
+        		}
+        		else 
+        		{
+        		   if(!file_exists("content/".$_GET["page"].".php"))
+        		    	include("content/error.php");
+        		   else
+        		 		include("content/".$_GET["page"].".php"); 
+        		}
+        	?>
+        </div>
 	</div>
     
 	<div class="helper">
@@ -60,5 +63,6 @@ var framework = new Framework("framework/connect.php");
             </li>           
     	</ul>
     </div>
+ </div>
 </body>
 </html>
