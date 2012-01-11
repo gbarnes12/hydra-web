@@ -1,4 +1,4 @@
-function Framework(url) 
+function yaapps(url) 
 {
     
     this.URL = url;
@@ -66,12 +66,21 @@ function Framework(url)
                      if(data.type == "return")
                      {
                         if(data.value == "true")
+                        {
                             alert("The email address you want to register is already taken.");
+                            userExists = true;
+                        }
+                        else
+                        {
+                            userExists = false;
+                        }
                      }
                      else if(data.type == "error")
                      {
                         alert(data.message);
-                     }};
+                        userExists = true;
+                     }
+            };
                      
             this.email = email;
             this.sendRequest("class=user&method=checkIfUserExists&email="+email, callback);  
@@ -101,11 +110,22 @@ function Framework(url)
             + document.documentElement.scrollTop;
       }
         
-      PosX = PosX - ImgPos[0];
-      PosY = PosY - ImgPos[1];
+      IMGPosX = PosX - ImgPos[0];
+      IMGPosY = PosY - ImgPos[1];
         
       if(this.userPoints.length < this.maximumPoints)
-        this.userPoints.push({X: PosX, Y: PosY});
+      {
+        this.userPoints.push({X: IMGPosX, Y: IMGPosY});
+      
+        // create indicator at the position of the last click
+        var div = '<div id="indicator" style="display:none;color: white;position: absolute; z-index: 1;top: ' + (PosY - 20) + 'px; left: ' + (PosX - 20) + 'px"><img src="resource/images/indicator_small.png" /></div>';
+        $("body").append(div);
+        $("#indicator").fadeIn('fast', function(){
+            $(this).fadeOut('fast', function(){
+                $(this).remove();
+            });
+        });
+      }
       else
         alert("You can only set " + this.maximumPoints + " points.");
         
@@ -116,6 +136,9 @@ function Framework(url)
         this.sendRequest("class=images&method=getDefaultImages", callback);  
     }
 }
+
+// needs to be globally accessible;
+var userExists = false;
 
 function FindPosition(oElement)
 {

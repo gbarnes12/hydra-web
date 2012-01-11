@@ -4,7 +4,7 @@
     include("config.php");
     
     /**
-     * framework
+     * yaapps
      * 
      * @package Awesome
      * @author Gavin Barnes
@@ -12,7 +12,7 @@
      * @version $Id$
      * @access public
      */
-    class framework 
+    class yaapps
     {
         public static $mysql;
         public static $classes;

@@ -21,7 +21,7 @@
         public function getDefaultImages()
         {
            $path = IMAGE_PATH;
-           $mysql = framework::$mysql;
+           $mysql = yaapps::$mysql;
             
            $sql = "SELECT * FROM awe_images WHERE isUpload = 0";
            $return = $mysql->Command($sql, true);

@@ -43,18 +43,22 @@ function userCreated(data)
 
 function checkIfValidEmail(params)
 {
-    var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
-    if(pattern.test(params.email))
-        return true;
-    
-    alert("Die Email, die Sie eingegeben haben ist nicht korrekt!");
+
+    if(!userExists)
+    {
+        var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+        if(pattern.test(params.email))
+            return true;
+        
+        alert("Die Email, die Sie eingegeben haben ist nicht korrekt!");
+    }   
     
     return false;
 }
 
 function getImages(params)
 {
-    framework.getDefaultImages(function(data) {
+    yaapps.getDefaultImages(function(data) {
          if(data.type == "return")
          {
             var html = "";

@@ -2,18 +2,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Projekt Hydra</title>
+<title>yaapps - Yet Another Awesome Picture Password System</title>
 <link href="resource/stylesheet/style.css" rel="stylesheet" type="text/css" />
 <link href='http://fonts.googleapis.com/css?family=Mako' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Bevan' rel='stylesheet' type='text/css'>
 <link href="resource/stylesheet/gallery.css" rel="stylesheet" type="text/css" />
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.pack.js"></script>
-<script type="text/javascript" src="resource/javascript/framework/md5.js"></script>
+<script type="text/javascript" src="resource/javascript/yaapps/md5.js"></script>
 <script type="text/javascript" src="resource/javascript/gallery.js"></script>
-<script type="text/javascript" src="resource/javascript/framework/framework.js"></script>
+<script type="text/javascript" src="resource/javascript/yaapps/yaapps.js"></script>
 <script type="text/javascript">
-var framework = new Framework("framework/connect.php");
+var yaapps = new yaapps("yaapps/connect.php");
 </script>
 
 <script type="text/javascript" src="resource/javascript/custom.js"></script>
