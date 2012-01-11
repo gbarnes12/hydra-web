@@ -13,6 +13,7 @@ function yaapps(url)
     this.setPoint = setPoint;
     this.createUser = createUser;
     this.pointsToString = pointsToString;
+    this.getUserImage = getUserImage;
     
     function sendRequest(data, callback)
     {
@@ -33,7 +34,7 @@ function yaapps(url)
         }
         else
         {
-            alert("You need to choose at least " + this.minimumPoints + " points.");
+            showMessage("You need to choose at least " + this.minimumPoints + " points.");
         }
     }
     
@@ -56,7 +57,7 @@ function yaapps(url)
         return string;
     }
     
-    function checkIfUserExists(obj)
+    function checkIfUserExists(obj, showmessage)
     {
         var email = $(obj).val();
         if(email != "")
@@ -67,17 +68,26 @@ function yaapps(url)
                      {
                         if(data.value == "true")
                         {
-                            alert("The email address you want to register is already taken.");
+                            if(showmessage)
+                            {
+                                showMessage("The email address you want to register is already taken.");
+                            }
+                                
                             userExists = true;
                         }
                         else
                         {
+                            if(!showmessage)
+                            {
+                                showMessage("The email address you supplied doesn't exist.");
+                            }
+                            
                             userExists = false;
                         }
                      }
                      else if(data.type == "error")
                      {
-                        alert(data.message);
+                        showMessage(data.message);
                         userExists = true;
                      }
             };
@@ -127,13 +137,34 @@ function yaapps(url)
         });
       }
       else
-        alert("You can only set " + this.maximumPoints + " points.");
+        showMessage("You can only set " + this.maximumPoints + " points.");
         
+    }
+    
+    function getUserImage(callback, email)
+    {
+        this.sendRequest("class=users&method=getUserImages&email="+email, callback);
     }
     
     function getDefaultImages(callback)
     {   
         this.sendRequest("class=images&method=getDefaultImages", callback);  
+    }
+    
+    function hideMessage()
+    {
+        $("#messagebox").fadeOut('slow', function(){
+                $(this).remove();
+            });
+    }
+    
+    function showMessage(message)
+    {
+        var div = '<div id="messagebox" style="display:none;position: absolute;left: 500px;background-color:grey;z-index: 1;padding: 10px;top: 10px;width: 400px;border: 1px solid #FFF" >'+message+'</div>';
+        $("body").append(div);
+        $("#messagebox").fadeIn('slow', function(){
+            window.setTimeout(hideMessage, 1000);
+        });
     }
 }
 

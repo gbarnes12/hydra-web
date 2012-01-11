@@ -43,17 +43,42 @@ function userCreated(data)
 
 function checkIfValidEmail(params)
 {
-
-    if(!userExists)
-    {
-        var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
-        if(pattern.test(params.email))
-            return true;
+    var mode = params.mode;
+    
+    if(params.mode == undefined)
+        mode = true;
         
-        alert("Die Email, die Sie eingegeben haben ist nicht korrekt!");
-    }   
+    if(mode)
+    {
+        if(!userExists)
+        {
+            var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+            if(pattern.test(params.email))
+                return true;
+            
+            alert("Die Email, die Sie eingegeben haben ist nicht korrekt!");
+        }   
+    }
+    else
+    {
+        if(userExists)
+        {
+            var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+            if(pattern.test(params.email))
+                return true;
+            
+            alert("Die Email, die Sie eingegeben haben ist nicht korrekt!");
+        } 
+    }
     
     return false;
+}
+
+function getUserImage(params)
+{
+    yaapps.getUserImage(function() {
+        
+    }, params.email);
 }
 
 function getImages(params)

@@ -1,8 +1,8 @@
 <div id="step_1" style="position: relative;">
     <h1>Register an account.</h1>
     <form  action="" method="post" accept-charset="ISO-8859-1">
-    	<input class="formfield" name="email" id="email" type="text" onfocus="emptyField(this, 'onFocus', 'Enter your email adress.');" onblur="emptyField(this, 'onBlur', 'Enter your email adress.');" onchange="yaapps.checkIfUserExists(this);" size="40" maxlength="40" value="Enter your email adress." />
-        <input class="button" type="button" name="go" value="Go" onclick="proceedToStep(1, 2, {method: checkIfValidEmail, params: {email:$('#email').val()}}, {method: getImages, params: {}});" />
+    	<input class="formfield" name="email" id="email" type="text" onfocus="emptyField(this, 'onFocus', 'Enter your email adress.');" onblur="emptyField(this, 'onBlur', 'Enter your email adress.');" onchange="yaapps.checkIfUserExists(this, true);" size="40" maxlength="40" value="Enter your email adress." />
+        <input class="button" type="button" name="go" value="Go" onclick="proceedToStep(1, 2, {method: checkIfValidEmail, params: {email:$('#email').val(), mode: true}}, {method: getImages, params: {}});" />
         <p><a href="?page=login">Log in.</a></p>
     </form>
 </div>
