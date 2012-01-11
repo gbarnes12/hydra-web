@@ -21,7 +21,7 @@
          */
         public function checkIfUserExists()
         {
-            $mysql = framework::$mysql;
+            $mysql = yaapps::$mysql;
             
             if($_POST["email"])
             {
@@ -46,7 +46,7 @@
         
         public function createUser()
         {
-            $mysql = framework::$mysql;
+            $mysql = yaapps::$mysql;
             
             if($_POST["email"] && $_POST["password"])
             {
