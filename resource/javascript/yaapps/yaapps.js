@@ -143,7 +143,7 @@ function yaapps(url)
     
     function getUserImage(callback, email)
     {
-        this.sendRequest("class=users&method=getUserImages&email="+email, callback);
+        this.sendRequest("class=user&method=getUserImages&email="+email, callback);
     }
     
     function getDefaultImages(callback)

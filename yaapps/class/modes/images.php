@@ -33,4 +33,23 @@
 
             return array("type" => "error", "message" => "Something went wrong while retrieving the images.");
         }
+        
+        /**
+         * images::getUserImage()
+         * 
+         * @param mixed $image_id
+         * @return array or boolean
+         */
+        public function getUserImage($image_id)
+        {
+            $mysql = yaapps::$mysql;
+            
+            $sql = "SELECT * FROM awe_images WHERE id = '".$mysql->SecureVariable($image_id)."'";
+            $return = $mysql->Command($sql, true);
+            
+            if(count($return) > 0) 
+                return $return;
+            
+            return false;
+        }
     }

@@ -97,6 +97,7 @@
                         $instance = self::$classes[$class];
                         if(is_object($instance))
                         {
+                            
                             $this->data = $instance->$_POST["method"]($_POST);
                         }
                     }

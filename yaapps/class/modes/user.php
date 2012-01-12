@@ -44,6 +44,32 @@
             
         }
         
+        public function getUserImages()
+        {
+            $mysql = yaapps::$mysql;
+            
+            if($_POST["email"])
+            {
+                $sql = "SELECT image_id FROM awe_users WHERE email='".$mysql->SecureVariable($_POST["email"])."'";
+                $user = $mysql->Command($sql, true);
+                
+                if(count($user) > 0) 
+                {
+                    $img = yaapps::$classes["images"]->getUserImage($user[0]->image_id);
+                    if($img != false)
+                    {
+                        return array("type" => "return", "value" => $img[0]);
+                    }
+                    
+                    return array("type" => "error", "message" => "There is no image with the given id: " . $user[0]->image_id);
+                }
+                
+                return array("type" => "error", "message" => "Email address isn't within the scope of the database relation.");
+            }
+            
+            return array("type" => "error", "message" => "Couldn't retrieve any image file!");
+        }
+        
         public function createUser()
         {
             $mysql = yaapps::$mysql;

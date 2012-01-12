@@ -76,8 +76,15 @@ function checkIfValidEmail(params)
 
 function getUserImage(params)
 {
-    yaapps.getUserImage(function() {
-        
+    yaapps.getUserImage(function(data) {
+        if(data.type == "return")
+         {
+            $("#img_background").css("background-image",  "url(generated/gallery/large/" + data.value.name+ ')');
+         }
+         else if(data.type == "error")
+         {
+            yaapps.showMessage(data.message);
+         }
     }, params.email);
 }
 
@@ -90,14 +97,14 @@ function getImages(params)
             var i=0;
             for (i=0; i < data.value.length; i++)
             {
-                html+='<a href="generated/gallery/large/'+data.value[i].name+'" class="preview" rel="lightbox"> <img style="width: 241px;height:239px" src="generated/gallery/'+data.value[i].name+'" alt="img" /></a>';
+                html+='<a href="generated/gallery/large/'+data.value[i].name+'" class="preview" rel="lightbox"> <img id="'+data.value[i].id+'" style="width: 241px;height:239px" src="generated/gallery/'+data.value[i].name+'" alt="img" /></a>';
             }
             
             $("#gallery").html(html);
          }
          else if(data.type == "error")
          {
-            alert(data.message);
+            yaapps.showMessage(data.message);
          }
     });
 }
