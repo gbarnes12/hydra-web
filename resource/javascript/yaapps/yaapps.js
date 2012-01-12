@@ -128,7 +128,7 @@ function yaapps(url)
         this.userPoints.push({X: IMGPosX, Y: IMGPosY});
       
         // create indicator at the position of the last click
-        var div = '<div id="indicator" style="display:none;color: white;position: absolute; z-index: 1;top: ' + (PosY - 20) + 'px; left: ' + (PosX - 20) + 'px"><img src="resource/images/indicator_small.png" /></div>';
+        var div = '<div id="indicator" style="display:none;color: white;position: absolute; z-index: 1;top: ' + (PosY - 20) + 'px; left: ' + (PosX - 20) + 'px"><img src="resource/images/indicator.gif" /></div>';
         $("body").append(div);
         $("#indicator").fadeIn('fast', function(){
             $(this).fadeOut('fast', function(){
