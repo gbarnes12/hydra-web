@@ -80,7 +80,7 @@
                         awe_users 
                         (email, password, image_id) 
                         VALUES 
-                        ('".$mysql->SecureVariable($_POST["email"])."', AES_ENCRYPT('".$mysql->SecureVariable($_POST["password"])."', '".SALT."'), 1)";
+                        ('".$mysql->SecureVariable($_POST["email"])."', AES_ENCRYPT('".$mysql->SecureVariable($_POST["password"])."', '".SALT."'), '".$mysql->SecureVariable($_POST["image_id"])."')";
                         
                 if($mysql->Command($sql)) 
                 {
