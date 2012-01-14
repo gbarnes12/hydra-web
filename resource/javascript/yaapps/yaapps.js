@@ -6,6 +6,9 @@ function yaapps(url)
     this.maximumPoints = 5;
     this.minimumPoints = 3;
     this.userEmail = "";
+    this.imageID = -1;
+    this.imageName = "";
+    
     
     this.sendRequest = sendRequest;
     this.checkIfUserExists = checkIfUserExists;
@@ -14,6 +17,8 @@ function yaapps(url)
     this.createUser = createUser;
     this.pointsToString = pointsToString;
     this.getUserImage = getUserImage;
+    this.setImage = setImage;
+    this.checkPoint = checkPoint;
     
     function sendRequest(data, callback)
     {
@@ -30,7 +35,7 @@ function yaapps(url)
     {
         if(this.userPoints.length >= this.minimumPoints)            
         {
-            this.sendRequest("class=user&method=createUser&email="+this.email+"&password="+this.pointsToString(), callback);
+            this.sendRequest("class=user&method=createUser&email="+this.email+"&password="+this.pointsToString()+"&image_id="+this.imageID, callback);
         }
         else
         {
@@ -55,6 +60,14 @@ function yaapps(url)
         }
         
         return string;
+    }
+    
+    function setImage(id, name, callback)
+    {
+        this.imageID = id;
+        this.imageName = name;
+        
+        callback();
     }
     
     function checkIfUserExists(obj, showmessage)
@@ -97,8 +110,41 @@ function yaapps(url)
         }
     } 
     
+    function checkPoint(event, obj)
+    {
+        var PosX = 0;
+        var PosY = 0;
+        var ImgPos;
+      
+        ImgPos = FindPosition(obj);
+      
+        if (!e) var e = event;
+        if (e.pageX || e.pageY)
+        {
+            PosX = e.pageX;
+            PosY = e.pageY;
+        }
+        else if (e.clientX || e.clientY)
+        {
+            PosX = e.clientX + document.body.scrollLeft
+                + document.documentElement.scrollLeft;
+            PosY = e.clientY + document.body.scrollTop
+                + document.documentElement.scrollTop;
+        }
+        
+        IMGPosX = PosX - ImgPos[0];
+        IMGPosY = PosY - ImgPos[1];
+        
+        if(this.userPoints.length < this.maximumPoints)
+        {
+            this.userPoints.push({X: IMGPosX, Y: IMGPosY});
+            this.sendRequest("class=users&method=checkPoint&id=" + this.userID + "&pointX=" + IMGPosX + "&pointY=" + IMGPosY, function(data) {
+                
+            });  
+        }
+    }
     
-    function setPoint(event, obj)
+    function setPoint(event, obj, callback)
     {
       var PosX = 0;
       var PosY = 0;
@@ -128,7 +174,7 @@ function yaapps(url)
         this.userPoints.push({X: IMGPosX, Y: IMGPosY});
       
         // create indicator at the position of the last click
-        var div = '<div id="indicator" style="display:none;color: white;position: absolute; z-index: 1;top: ' + (PosY - 20) + 'px; left: ' + (PosX - 20) + 'px"><img src="resource/images/indicator.gif" /></div>';
+        var div = '<div id="indicator" style="display:none;color: white;position: absolute; z-index: 1;top: ' + (PosY - 20) + 'px; left: ' + (PosX - 20) + 'px"><img src="resource/images/indicator_small.png" /></div>';
         $("body").append(div);
         $("#indicator").fadeIn('fast', function(){
             $(this).fadeOut('fast', function(){
@@ -137,8 +183,15 @@ function yaapps(url)
         });
       }
       else
-        showMessage("You can only set " + this.maximumPoints + " points.");
-        
+      {
+        this.userPoints = new Array();
+        showMessage("You can only set " + this.maximumPoints + " points. You need to reset your points due to security measures.");
+      }
+      
+      if(this.userPoints.length == this.minimumPoints)
+      {
+        callback();
+      }
     }
     
     function getUserImage(callback, email)

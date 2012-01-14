@@ -80,6 +80,7 @@ function getUserImage(params)
         if(data.type == "return")
          {
             $("#img_background").css("background-image",  "url(generated/gallery/large/" + data.value.name+ ')');
+            $("#img_background").css("background-repeat",  "no-repeat");
          }
          else if(data.type == "error")
          {
@@ -97,7 +98,7 @@ function getImages(params)
             var i=0;
             for (i=0; i < data.value.length; i++)
             {
-                html+='<a href="generated/gallery/large/'+data.value[i].name+'" class="preview" rel="lightbox"> <img id="'+data.value[i].id+'" style="width: 241px;height:239px" src="generated/gallery/'+data.value[i].name+'" alt="img" /></a>';
+                html+='<div style="float: left;"><a href="generated/gallery/large/'+data.value[i].name+'" class="preview" rel="lightbox"> <img id="'+data.value[i].id+'" style="width: 241px;height:239px" src="generated/gallery/'+data.value[i].name+'" alt="img" /></a><div style="position: absolute;margin-top:174px;"><a onclick="yaapps.setImage('+data.value[i].id+', \''+data.value[i].name+'\', function() {$(\'#button_gallery\').show();})" style="cursor: pointer"><img src="resource/images/thisone.png" /></a></div></div>';
             }
             
             $("#gallery").html(html);
