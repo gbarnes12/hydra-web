@@ -37,8 +37,8 @@ h1, h2, h3
 
 #content
 {
-	min-height: 600px;
-	height: 78%;
+	min-height: 500px;
+	height: 68%;
 	width: 100%;
 	align: center;
 }
@@ -88,10 +88,8 @@ form p
 	text-align: right;
 }
 .helper{
-	position: absolute;
+	position: relative;
 	padding-left: 30px;
-	bottom: 0px;
-	margin-bottom: 55px;
 }
 
 .helper_move{
