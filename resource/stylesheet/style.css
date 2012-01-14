@@ -98,7 +98,7 @@ form p
 	display: block;
 	width: 82px;
 	height: 92px;
-	background: url('http://localhost/other/hydra/resource/images/helper.png') bottom;
+	background: url('/resource/images/helper.png') bottom;
 	text-indent: -99999px;
 }
 .helper_move:hover{	
