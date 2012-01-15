@@ -56,7 +56,7 @@ h4
 }
 #content-inner
 {
-    padding: 190px 0 1px 110px;
+    padding: 190px 0 0px 110px;
 }
 
 form {
@@ -114,6 +114,8 @@ form p
 }
 #footer
 {
+	bottom: 0;
+	position: absolute;
 	clear: both;
 	width: 100%;
 	background: #1f1f1f;
@@ -122,7 +124,7 @@ form p
 
 #footer_nav
 {
-	padding-top: 15px;
+
 	padding-left: 90px;
 }
 #footer_nav li
