@@ -77,15 +77,8 @@ function checkIfValidEmail(params)
 function getUserImage(params)
 {
     yaapps.getUserImage(function(data) {
-        if(data.type == "return")
-         {
-            $("#img_background").css("background-image",  "url(generated/gallery/large/" + data.value.name+ ')');
-            $("#img_background").css("background-repeat",  "no-repeat");
-         }
-         else if(data.type == "error")
-         {
-            yaapps.showMessage(data.message);
-         }
+        $("#img_background").css("background-image",  "url(generated/gallery/large/" + data.value[0].name+ ')');
+        $("#img_background").css("background-repeat",  "no-repeat");
     }, params.email);
 }
 
