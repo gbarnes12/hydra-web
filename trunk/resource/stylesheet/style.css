@@ -43,6 +43,9 @@ h1, h2, h3
 	align: center;
 }
 
+#content p{
+width: 70%;
+}
 #content-inner
 {
     padding: 190px 0 1px 110px;
