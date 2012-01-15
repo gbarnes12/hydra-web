@@ -46,9 +46,9 @@ var yaapps = new yaapps("yaapps/connect.php");
         </div>
 	</div>
     
-	<!--<div class="helper">
+	<div class="helper">
 		<a class="helper_move" href="?page=help">test</a>
-	</div>//-->
+	</div>
 	
     <div id="footer">
     	<ul id="footer_nav">
