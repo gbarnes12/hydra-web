@@ -26,7 +26,7 @@
         <input class="button" id="button_gallery" style="display: none;" type="button" name="go" value="Go" onclick="proceedToStep(2, 3, {method: function() {if(yaapps.imageID != -1) return true; else return false;}, params: {}}, {method: function() { $('#image_background').css('background-image',  'url(generated/gallery/large/'+yaapps.imageName+')'); }, params: {}});" />		
 </div>
 <div id="step_3" style="display: none;position:relative;left: 2000px">
-    <div id="image_background" style="float: left;margin-right: 20px;width: 800px;height: 600px;" onclick="yaapps.setPoint(event, this, function() {$('#button_usercreate').show();});"></div>
+    <div id="image_background" style="float: left;margin-right: 20px;width: 600px;height: 450px;background-repeat: no-repeat;" onclick="yaapps.setPoint(event, this, function() {$('#button_usercreate').show();});"></div>
     <div style="float: left;">
         <button class="button" id="button_usercreate" style="display: none;" id="ok" name="ok" type="button" value="Upload" onclick="yaapps.createUser(userCreated);">
 	      <p>Ok</p>

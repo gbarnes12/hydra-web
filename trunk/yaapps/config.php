@@ -8,3 +8,4 @@
     
     define("IMAGE_PATH", "../generated/gallery/");
     define("SALT", "AWESOME_MINDDROPPING_APP_10293x81239s123");
+    define("MAX_DISTANCE", 20);

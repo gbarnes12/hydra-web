@@ -5,6 +5,7 @@ function yaapps(url)
     this.userPoints = new Array();
     this.maximumPoints = 5;
     this.minimumPoints = 3;
+    this.maxTries = 5;
     this.userEmail = "";
     this.imageID = -1;
     this.imageName = "";
@@ -52,7 +53,7 @@ function yaapps(url)
             var i = 0;
             for(i = 0;i < this.userPoints.length;i++)
             {
-                string+="{X:"+this.userPoints[i].X+",Y:"+this.userPoints[i].Y+"}";
+                string+="X:"+this.userPoints[i].X+";Y:"+this.userPoints[i].Y;
                 
                 if(this.userPoints.length-1 != i)
                     string+=",";
@@ -137,10 +138,42 @@ function yaapps(url)
         
         if(this.userPoints.length < this.maximumPoints)
         {
-            this.userPoints.push({X: IMGPosX, Y: IMGPosY});
-            this.sendRequest("class=users&method=checkPoint&id=" + this.userID + "&pointX=" + IMGPosX + "&pointY=" + IMGPosY, function(data) {
+            numPoint++;
+            
+            if(tries <= this.maxTries || numPoint < maxUserPoints)
+            {
+                // create indicator at the position of the last click
+                var div = '<div id="indicator" style="display:none;color: white;position: absolute; z-index: 1;top: ' + (PosY - 30) + 'px; left: ' + (PosX - 30) + 'px"><img src="resource/images/indicator.png" /></div>';
+                $("body").append(div);
+                $("#indicator").fadeIn('fast', function(){
+                    $(this).fadeOut('fast', function(){
+                        $(this).remove();
+                    });
+                });
                 
-            });  
+                this.sendRequest("class=user&method=checkPoint&email=" + this.userEmail + "&pointX=" + IMGPosX + "&pointY=" + IMGPosY + "&numPoint=" + numPoint, 
+                function(data) {
+                        if(data.type == "return")
+                         {
+                            if(data.value == "true")
+                            {
+                                // all the points have been correctly set?
+                                if(numPoint == maxUserPoints)
+                                    $("#button_login").show();
+                            }
+                            else
+                            {
+                                numPoint = 0;
+                                tries++;
+                                showMessage("The point you've selected isn't within the radius of your point. Your points have been resetted due to security measures.");
+                            }
+                         }
+                         else if(data.type == "error")
+                         {
+                            showMessage(data.message);
+                         }
+                });  
+            }
         }
     }
     
@@ -174,7 +207,7 @@ function yaapps(url)
         this.userPoints.push({X: IMGPosX, Y: IMGPosY});
       
         // create indicator at the position of the last click
-        var div = '<div id="indicator" style="display:none;color: white;position: absolute; z-index: 1;top: ' + (PosY - 20) + 'px; left: ' + (PosX - 20) + 'px"><img src="resource/images/indicator_small.png" /></div>';
+        var div = '<div id="indicator" style="display:none;color: white;position: absolute; z-index: 1;top: ' + (PosY - 30) + 'px; left: ' + (PosX - 30) + 'px"><img src="resource/images/indicator.png" /></div>';
         $("body").append(div);
         $("#indicator").fadeIn('fast', function(){
             $(this).fadeOut('fast', function(){
@@ -196,7 +229,20 @@ function yaapps(url)
     
     function getUserImage(callback, email)
     {
-        this.sendRequest("class=user&method=getUserImages&email="+email, callback);
+        this.sendRequest("class=user&method=getUserImages&email="+email, function(data)
+        {
+             if(data.type == "return")
+             {
+                yaapps.userEmail = email;
+                maxUserPoints = data.value[1];
+                callback(data);
+                
+             }
+             else if(data.type == "error")
+             {
+                yaapps.showMessage(data.message);
+             }
+        });
     }
     
     function getDefaultImages(callback)
@@ -223,6 +269,9 @@ function yaapps(url)
 
 // needs to be globally accessible;
 var userExists = false;
+var numPoint = 0;
+var maxUserPoints = 5;
+var tries = 0;
 
 function FindPosition(oElement)
 {
