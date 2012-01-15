@@ -43,8 +43,8 @@ h1, h2, h3
 	align: center;
 }
 
-#content p{
-width: 70%;
+#help_text{
+	width: 70%;
 }
 #content-inner
 {
