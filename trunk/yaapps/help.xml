@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<help>
+    <string id="ON_LOAD_GREETINGS"><![CDATA[Hey there,<br/>
+    I am Robotics your personal assistent. You can<br />
+    ask me anything you want.]]>
+    </string>
+    <string id="EMAIL_ADDRESS_LOGIN"><![CDATA[You can type
+    your email address into the textbox.<br />
+    Thus you can log into our system.]]>
+    </string>
+    <string id="REGISTER_DESCRIPTION"><![CDATA[Before you are able
+    to login - you need to register an account and choose a picture
+    from our database.]]>
+    </string>
+</help>

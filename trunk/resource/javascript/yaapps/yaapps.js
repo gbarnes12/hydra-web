@@ -20,6 +20,7 @@ function yaapps(url)
     this.getUserImage = getUserImage;
     this.setImage = setImage;
     this.checkPoint = checkPoint;
+    this.getHelp = getHelp;
     
     function sendRequest(data, callback)
     {
@@ -242,6 +243,41 @@ function yaapps(url)
              {
                 yaapps.showMessage(data.message);
              }
+        });
+    }
+    
+    function getHelp(id)
+    {
+        this.sendRequest("class=help&method=getHelpString&id=" + id, function(data)
+        {
+            if(data.type == "return")
+            {
+                $('#helper_message').html(data.value);
+                $('.helper_move').css("background-position", "0 0");
+                $('#helper_message').fadeIn("slow", function()
+                {
+                     window.setTimeout(function()
+                     {
+                        $('#helper_message').fadeOut('slow');
+                        $('.helper_move').css("background-position", "bottom");
+                     }, 10000);
+                    
+                })
+            }
+            else if(data.type == "error")
+            {
+                $('#helper_message').html(data.message);
+                $('.helper_move').css("background-position", "0 0");
+                $('#helper_message').fadeIn("slow", function()
+                {
+                     window.setTimeout(function()
+                     {
+                        $('#helper_message').fadeOut('slow');
+                        $('.helper_move').css("background-position", "bottom");
+                     }, 10000);
+                    
+                })
+            }
         });
     }
     
