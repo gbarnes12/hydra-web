@@ -19,7 +19,7 @@ var yaapps = new yaapps("yaapps/connect.php");
 <script type="text/javascript" src="resource/javascript/custom.js"></script>
 </head>
 
-<body>
+<body onload="yaapps.getHelp('ON_LOAD_GREETINGS');">
 <div id="wrapper">
 	<div id="header">
         <a href="?page=login"><img id="logo" src="resource/images/logo.jpg" alt="logo" /></a>
@@ -45,8 +45,9 @@ var yaapps = new yaapps("yaapps/connect.php");
         	?>
         </div>
 	</div>
-    
+
 	<div class="helper">
+        <div id="helper_message" style="position: relative;display:none; width: 250px; min-height: 100px;padding: 5px;left: 100px;top: -1S0px;background-color:#CCC;"></div>
 		<a class="helper_move" href="?page=help">test</a>
 	</div>
 	

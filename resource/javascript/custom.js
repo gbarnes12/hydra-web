@@ -82,6 +82,16 @@ function getUserImage(params)
     }, params.email);
 }
 
+function showBorderForImage(id)
+{
+    $('.image_div').each(function(obj)
+    {
+       $(this).css('outline', 'none'); 
+    });
+    
+    $('#'+id+'_div').css('outline', '3px solid green');
+}
+
 function getImages(params)
 {
     yaapps.getDefaultImages(function(data) {
@@ -91,7 +101,7 @@ function getImages(params)
             var i=0;
             for (i=0; i < data.value.length; i++)
             {
-                html+='<div style="float: left;"><a href="generated/gallery/large/'+data.value[i].name+'" class="preview" rel="lightbox"> <img id="'+data.value[i].id+'" style="width: 241px;height:239px" src="generated/gallery/'+data.value[i].name+'" alt="img" /></a><div style="position: absolute;margin-top:174px;"><a onclick="yaapps.setImage('+data.value[i].id+', \''+data.value[i].name+'\', function() {$(\'#button_gallery\').show();})" style="cursor: pointer"><img src="resource/images/thisone.png" /></a></div></div>';
+                html+='<div class="image_div" id="'+data.value[i].id+'_div" style="float: left;margin-left: 5px;"><a href="generated/gallery/large/'+data.value[i].name+'" class="preview" rel="lightbox"> <img id="'+data.value[i].id+'" style="width: 241px;height:239px" src="generated/gallery/'+data.value[i].name+'" alt="img" /></a><div style="position: absolute;margin-top:174px;"><a onclick="yaapps.setImage('+data.value[i].id+', \''+data.value[i].name+'\', function() {$(\'#button_gallery\').show();});showBorderForImage(\''+data.value[i].id+'\');" style="cursor: pointer"><img src="resource/images/thisone.png" /></a></div></div>';
             }
             
             $("#gallery").html(html);
