@@ -19,10 +19,12 @@
 		    </button>
 		  </div>
 		</form>
+        <a href="#" onclick="moveCarousell('right');" class="arrow_right" style="margin-right: 5px;"> <img src="resource/images/arrow_left.png" alt="arrow"/></a>
 		<div class="carousell">
 			<div id="gallery"></div>
-				<a href="#" class="arrow_right"> <img src="resource/images/arrow_right.png" alt="arrow"/></a>
 		</div>	
+        <a href="#" onclick="moveCarousell('left');" class="arrow_right"> <img src="resource/images/arrow_right.png" alt="arrow"/></a>
+        <div style="clear: both;"></div>
         <input class="button" id="button_gallery" style="display: none;" type="button" name="go" value="Go" onclick="proceedToStep(2, 3, {method: function() {if(yaapps.imageID != -1) return true; else return false;}, params: {}}, {method: function() { $('#image_background').css('background-image',  'url(generated/gallery/large/'+yaapps.imageName+')'); }, params: {}});" />		
 </div>
 <div id="step_3" style="display: none;position:relative;left: 2000px">

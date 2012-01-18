@@ -1,4 +1,6 @@
 <?php
-	print_r($_POST);
-	echo json_encode(array(1,2));
+	include("class/mysql.php");
+
+    $mysql = new Mysql(MYSQL_HOST, MYSQL_USERNAME, MYSQL_PASSWORD, MYSQL_DATABASE);
+    
 	
