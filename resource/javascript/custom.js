@@ -92,6 +92,32 @@ function showBorderForImage(id)
     $('#'+id+'_div').css('outline', '3px solid green');
 }
 
+function moveCarousell(direction)
+{
+
+    if(direction == "left")
+    {
+        var margin = parseInt($('#gallery').css('margin-left'));
+        margin-=730;
+        var width = 0;
+        
+        $('#gallery div').each(function(){
+            width+= $(this).width();
+        });
+ 
+        if(width > (margin - (2 * margin)))
+            $('#gallery').css('margin-left',  margin + "px");
+    }
+    else if(direction == "right")
+    {
+        var margin = parseInt($('#gallery').css('margin-left'));
+        margin+=730;
+    
+        if(margin <= 0)
+            $('#gallery').css('margin-left', margin + "px");
+    }
+}
+
 function getImages(params)
 {
     yaapps.getDefaultImages(function(data) {
@@ -101,7 +127,10 @@ function getImages(params)
             var i=0;
             for (i=0; i < data.value.length; i++)
             {
-                html+='<div class="image_div" id="'+data.value[i].id+'_div" style="float: left;margin-left: 5px;"><a href="generated/gallery/large/'+data.value[i].name+'" class="preview" rel="lightbox"> <img id="'+data.value[i].id+'" style="width: 241px;height:239px" src="generated/gallery/'+data.value[i].name+'" alt="img" /></a><div style="position: absolute;margin-top:174px;"><a onclick="yaapps.setImage('+data.value[i].id+', \''+data.value[i].name+'\', function() {$(\'#button_gallery\').show();});showBorderForImage(\''+data.value[i].id+'\');" style="cursor: pointer"><img src="resource/images/thisone.png" /></a></div></div>';
+                html+='<div style="width:240px;height:240px;float: left;margin-right:5px;background-image:url(generated/gallery/'+data.value[i].name+')" class="image_div" id="'+data.value[i].id+'_div" style="float: left;margin-left: 5px;">'
+                        + '<a onclick="yaapps.setImage('+data.value[i].id+', \''+data.value[i].name+'\', function() {$(\'#button_gallery\').show();});showBorderForImage(\''+data.value[i].id+'\');" style="cursor: pointer">'
+                        + '<img style="margin-top: 180px;" src="resource/images/thisone.png" /></a>'
+                    + '</div>';
             }
             
             $("#gallery").html(html);
