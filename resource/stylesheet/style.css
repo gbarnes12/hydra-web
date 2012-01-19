@@ -115,6 +115,7 @@ form p
 }
 #footer
 {
+	position: inherit;
 	bottom: 0;
 	clear: both;
 	width: 100%;
