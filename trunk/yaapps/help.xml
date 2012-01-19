@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <help>
     <string id="ON_LOAD_GREETINGS"><![CDATA[Hey there,<br/>
-    I am Robotics your personal assistent. You can<br />
-    ask me anything you want.]]>
+    I am Robotics your personal assistent. Click me<br />
+    for extensive help.]]>
     </string>
     <string id="EMAIL_ADDRESS_LOGIN"><![CDATA[You can type
     your email address into the textbox.<br />
@@ -11,5 +11,25 @@
     <string id="REGISTER_DESCRIPTION"><![CDATA[Before you are able
     to login - you need to register an account and choose a picture
     from our database.]]>
+    </string>
+	<string id="PICTURE_CHOICE"><![CDATA[Here you can browse our
+    gallery and choose a picture for your picture password.]]>
+    </string>
+	<string id="SET_POINTS"><![CDATA[Now it is time to set your points.
+	Be sure to choose at least 3 but not more that 5 points that you can remember
+	in the order that you click to set them now.]]>
+    </string>
+	<string id="LOGO_INFO"><![CDATA[This is just a logo, you can simply ignore it.]]>
+    </string>
+	<string id="CONTACT_INFO"><![CDATA[If you click here you will find email adresses.
+	Do not pester, please.]]>
+    </string>
+	<string id="ABOUT_INFO"><![CDATA[You think it's nice but you have no clue what this is about?
+	Click here for information.]]>
+    </string>
+	<string id="DISCLAIMER_INFO"><![CDATA[Do not click the DISCLAIMER. Please don't.]]>
+    </string>
+	<string id="LOGIN_POINTS"><![CDATA[Click the points you set as your password. Remember: 
+	The order is important and you should have set 3-5 points.]]>
     </string>
 </help>
