@@ -22,7 +22,7 @@ var yaapps = new yaapps("yaapps/connect.php");
 <body onload="yaapps.getHelp('ON_LOAD_GREETINGS');">
 <div id="wrapper">
 	<div id="header">
-        <a href="?page=login"><img id="logo" src="resource/images/logo.jpg" alt="logo" /></a>
+        <a href="?page=login" onmouseover="yaapps.getHelp('LOGO_INFO');"><img id="logo" src="resource/images/logo.jpg" alt="logo" /></a>
     </div>
 	<div id="content">
         <div id="content-inner">
@@ -54,13 +54,13 @@ var yaapps = new yaapps("yaapps/connect.php");
     <div id="footer">
     	<ul id="footer_nav">
         	<li>
-            <a href="?page=disclaimer">Disclaimer<a>
+            <a href="?page=disclaimer" onmouseover="yaapps.getHelp('DISCLAIMER_INFO');">Disclaimer<a>
             </li>
          	<li>
-            <a href="?page=contact">Contact<a>
+            <a href="?page=contact" onmouseover="yaapps.getHelp('CONTACT_INFO');">Contact<a>
             </li>           
             <li>
-           <a href="?page=about">About<a>
+           <a href="?page=about" onmouseover="yaapps.getHelp('ABOUT_INFO');">About<a>
             </li>           
     	</ul>
     </div>
