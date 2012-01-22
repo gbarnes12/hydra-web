@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <help>
     <string id="ON_LOAD_GREETINGS"><![CDATA[Hey there,<br/>
-    I am Robotics your personal assistent. Click me<br />
+    I am Bumblebee your personal assistent. Click me<br />
     for extensive help.]]>
     </string>
     <string id="EMAIL_ADDRESS_LOGIN"><![CDATA[You can type
