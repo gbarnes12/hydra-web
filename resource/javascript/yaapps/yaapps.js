@@ -260,7 +260,7 @@ function yaapps(url)
                      {
                         $('#helper_message').fadeOut('slow');
                         $('.helper_move').css("background-position", "bottom");
-                     }, 10000);
+                     }, 20000);
                     
                 })
             }
@@ -274,7 +274,7 @@ function yaapps(url)
                      {
                         $('#helper_message').fadeOut('slow');
                         $('.helper_move').css("background-position", "bottom");
-                     }, 10000);
+                     }, 20000);
                     
                 })
             }
